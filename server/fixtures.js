@@ -3,19 +3,35 @@ if (Links.find().count() === 0) {
   Links.insert({
     title: "Hack the Hearst",
     url: "http://hackthehearst.berkeley.edu/",
-    summary: ""
+    summary: "",
+    tags: ["Museums","API"]
   });
 
   Links.insert({
     title: "MET Digital Media Department",
     url: "http://www.metmuseum.org/about-the-museum/museum-departments/office-of-the-director/digital-media-department",
-    summary: ""
+    summary: "",
+    tags: ["Museums"]
   });
 
   Links.insert({
     title: "MET App",
     url: "http://www.metmuseum.org/visit/met-app",
-    summary: ""
+    summary: "",
+    tags: ["Mobile"]
   });
 }
+
+if (Tags.find().count() === 0) {
+  Tags.insert({
+    title: "Museums"
+  });
+  Tags.insert({
+    title: "API"
+  });
+  Tags.insert({
+    title: "Mobile"
+  });
+}
+
 
