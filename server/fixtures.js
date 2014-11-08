@@ -4,33 +4,36 @@ if (Links.find().count() === 0) {
     title: "Hack the Hearst",
     url: "http://hackthehearst.berkeley.edu/",
     summary: "",
-    tags: ["Museums","API"]
+    tags: ["Museums","API"],
+    tagId: ["Eaw7qkdvF8tmPBpcw","mNdkZaqQ5hs4kr6wn"]
   });
 
   Links.insert({
     title: "MET Digital Media Department",
     url: "http://www.metmuseum.org/about-the-museum/museum-departments/office-of-the-director/digital-media-department",
     summary: "",
-    tags: ["Museums"]
+    tags: ["Museums"],
+    tagId: ["mNdkZaqQ5hs4kr6wn"]
   });
 
   Links.insert({
     title: "MET App",
     url: "http://www.metmuseum.org/visit/met-app",
     summary: "",
-    tags: ["Mobile"]
+    tags: ["Mobile"],
+    tagId: ["Eaw7qkdvF8tmPBpcw","uQrDzMTDSwEak5ygS"]
   });
 }
 
 if (Tags.find().count() === 0) {
   Tags.insert({
-    title: "Museums"
+    title: "Museumsss"
   });
   Tags.insert({
-    title: "API"
+    title: "APIss"
   });
   Tags.insert({
-    title: "Mobile"
+    title: "Mobiless"
   });
 }
 
