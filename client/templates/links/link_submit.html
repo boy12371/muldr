@@ -2,7 +2,8 @@
   <form class="main form">
     <div class="form-group">
       <label class="control-label" for="url">URL</label>
-      <div class="controls">
+      <div class="controls input-group">
+          <div class="input-group-addon">http://</div>
           <input name="url" id="url" type="text" value="" placeholder="Your URL" class="form-control"/>
       </div>
     </div>
@@ -11,6 +12,16 @@
       <div class="controls">
           <input name="title" id="title" type="text" value="" placeholder="Name your post" class="form-control"/>
       </div>
+    </div>
+    <div class="form-group">
+    <label class="control-label" for="tags">Tags</label>
+      <select multiple class="form-control chosen-select" placeholder="Choose tags" style="width:100%;" id="tags" name="tags">
+        <option value="Item 1">Item 1</option>
+        <option value="Item 2">Item 2</option>
+        <option value="Item 3">Item 3</option>
+        <option value="Item 4">Item 4</option>
+        <option value="Item 5">Item 5</option>
+      </select>
     </div>
     <input type="submit" value="Submit" class="btn btn-primary"/>
   </form>

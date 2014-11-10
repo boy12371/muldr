@@ -1,3 +1,22 @@
+.chzn-container-multi .chzn-choices {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-image: none;
+  height: 34px;
+}
+
+.chzn-container-multi .chzn-choices  input.default {
+  height: 30px;  
+  font-family: helvetica;
+  font-size: 14px;
+  padding: 6px 12px;
+}
+
+.chzn-container-multi .chzn-choices .search-choice {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
 .grid-block, .main, .link, .comments li, .comment-form {
   background: #fff;
   -webkit-border-radius: 3px;

@@ -4,7 +4,8 @@ Template.linkSubmit.events({
 
     var link = {
       url: $(e.target).find('[name=url]').val(),
-      title: $(e.target).find('[name=title]').val()
+      title: $(e.target).find('[name=title]').val(),
+      tags: $(e.target).find('[name=tags]').val()
     };
 
     Meteor.call('linkInsert', link, function(error, result) {
@@ -12,9 +13,12 @@ Template.linkSubmit.events({
     	  return alert(error.reason);
     	// show this result but route anyway
 	    if (result.linkExists)
-	      alert('This link has already been posted');
-
-	    // Router.go('linksList');
+	      return alert('This link has already been posted');
+	    Router.go('linksList');
     });
   }
 });
+
+Template.linkSubmit.rendered = function () {
+	$(".chosen-select").chosen({width: "100%"})
+};
