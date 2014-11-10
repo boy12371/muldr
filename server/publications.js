@@ -1,12 +1,16 @@
+// Meteor.publish('links', function() {
+
+//    var links = Links.find();
+//    var tagTitles = links.map(function(p) { return p.tagTitle });
+
+//    return [
+//   	 links,
+//   	 Tags.find({_id: {$in: tagTitles}})
+//    ];
+// });
+
 Meteor.publish('links', function() {
-
-   var links = Links.find();
-   var tagIds = links.map(function(p) { return p.tagId });
-
-   return [
-  	 links,
-  	 Tags.find({_id: {$in: tagIds}})
-   ];
+  return Links.find();
 });
 
 Meteor.publish('tags', function() {
