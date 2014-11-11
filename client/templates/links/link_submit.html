@@ -14,15 +14,14 @@
       </div>
     </div>
     <div class="form-group">
-    <label class="control-label" for="tags">Tags</label>
+      <label class="control-label" for="tags">Tags</label>
       <select multiple class="form-control chosen-select" placeholder="Choose tags" style="width:100%;" id="tags" name="tags">
-        <option value="Item 1">Item 1</option>
-        <option value="Item 2">Item 2</option>
-        <option value="Item 3">Item 3</option>
-        <option value="Item 4">Item 4</option>
-        <option value="Item 5">Item 5</option>
+        {{#each tags}}
+          <option value="{{title}}">{{title}}</option>          
+        {{/each}} 
       </select>
     </div>
+
     <input type="submit" value="Submit" class="btn btn-primary"/>
   </form>
 </template>

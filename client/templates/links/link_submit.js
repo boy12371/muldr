@@ -22,3 +22,9 @@ Template.linkSubmit.events({
 Template.linkSubmit.rendered = function () {
 	$(".chosen-select").chosen({width: "100%"})
 };
+
+Template.linkSubmit.helpers({
+  tags: function() {
+  	return Tags.find();
+  }
+});
