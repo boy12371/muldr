@@ -1,9 +1,11 @@
+
 <template name="linksList">
+  {{> filters}}
   <div class="links">
-
     {{#each links}}
-      {{> linkItem}}
+    	{{> linkItem}}
     {{/each}}
-
+    {{pageTitle}}
+    
   </div>
 </template>
