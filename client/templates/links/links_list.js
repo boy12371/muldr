@@ -2,8 +2,9 @@ var isFiltered;
 
 Template.linksList.helpers({
   links: function() {
+  	// check to see if filter is being set by click event
   	if (isFiltered != 'true') {
-  		//initial load of all of the links
+  		// initial load of all of the links
   		Session.set('links', Links.find().fetch()); 		
   	}
   	return Session.get('links');
