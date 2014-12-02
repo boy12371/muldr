@@ -5,7 +5,8 @@ Template.linkSubmit.events({
     var link = {
       url: $(e.target).find('[name=url]').val(),
       title: $(e.target).find('[name=title]').val(),
-      tags: $(e.target).find('[name=tags]').val()
+      tags: $(e.target).find('[name=tags]').val(),
+      type: $(e.target).find('[name=type]').val()
     };
 
     Meteor.call('linkInsert', link, function(error, result) {
@@ -26,5 +27,8 @@ Template.linkSubmit.rendered = function () {
 Template.linkSubmit.helpers({
   tags: function() {
   	return Tags.find();
+  },
+  types: function() {
+    return Types.find();
   }
 });

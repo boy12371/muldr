@@ -5,3 +5,7 @@ Meteor.publish('links', function() {
 Meteor.publish('tags', function() {
   return Tags.find();
 });
+
+Meteor.publish('types', function() {
+  return Types.find();
+});

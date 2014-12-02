@@ -21,6 +21,16 @@
         {{/each}} 
       </select>
     </div>
+    <div class="form-group">
+      <label class="control-label" for="type">Type</label>
+      <div class="controls">
+          <select class="form-control" placeholder="Choose type" id="tags" name="tags">
+            {{#each types}}
+              <option value="{{title}}">{{title}}</option>          
+            {{/each}}             
+          </select>
+      </div>
+    </div>    
 
     <input type="submit" value="Submit" class="btn btn-primary"/>
   </form>
