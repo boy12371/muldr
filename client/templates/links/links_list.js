@@ -62,26 +62,26 @@ updateTypeArray = function(activeType, state){
 		i = currentTypes.indexOf(activeType.title);
 		currentTypes.splice(i,1);	
 		Session.set('types', Types.find({ title: { $in : currentTypes}}).fetch());
-		isFiltered = 'true';
 	} else {
 		getCurrentTypeArray();
 		currentTypes.push(activeType.title);
 		Session.set('types', Types.find({ title: { $in : currentTypes}}).fetch());
-		isFiltered = 'true';
 	}
 	updateSessionVariable('types');
 	updateLinksFromFilters();	
 }
 
 updateLinksFromFilters = function(){
-	console.log(currentTags)
+	getCurrentTypeArray();
 	if(currentTags != null){
 		console.log('using tags');
+		console.log(currentTags + ' + ' + currentTypes );
 		Session.set('links', Links.find({ type: { $in : currentTypes}, tags: { $elemMatch : {title: currentTags}}}).fetch());
 	} else {
 		console.log('not using tags');
 		Session.set('links', Links.find({ type: { $in : currentTypes}}).fetch());
 	}
+	isFiltered = 'true';
 	updateSessionVariable('links');
 }
 
