@@ -1,5 +1,8 @@
+// cool thing to do would be so currentTypes and currentTags load from Session variable, so choices would be remember even after page reload
+
 var isFiltered;
-var currentTypes;
+var currentTypes = [];
+var currentTags = null;
 
 Template.linksList.helpers({
   links: function() {
@@ -21,10 +24,12 @@ Template.filters.rendered = function () {
 
 Template.linksList.events({
 	"click .dropdown-menu li a": function () {
-		filterByTag(this);
+		// filterByTag(this);
+		getCurrentTag(this);
 	},
 	"click .link-content .label": function () {
-		filterByTag(this);
+		// filterByTag(this);
+		getCurrentTag(this);
 	},
 	"change .checkbox-inline": function (evt) {
 		if ($(evt.target).is(':checked')) {
@@ -35,15 +40,20 @@ Template.linksList.events({
 	}
 });
 
-filterByTag = function(val){
-	if(typeof val.title === 'string'){
-		tagTitles = val.title;
-		Session.set('links', Links.find({ tags: { $elemMatch : {title: tagTitles}}}).fetch());
-		isFiltered = 'true';
+getCurrentTag = function(selectedTag){
+	if(typeof selectedTag.title === 'string'){
+		currentTags = selectedTag.title;
 	} else {
-		Session.set('links', Links.find().fetch());
-	}	
-	updateSessionVariable('links');
+		currentTags = null;
+	}
+	updateLinksFromFilters();	
+}
+
+getCurrentTypeArray = function() {
+	currentTypes = [];
+	Session.get('types').forEach(function(type){
+		currentTypes.push(type.title);
+	});	
 }
 
 updateTypeArray = function(activeType, state){
@@ -60,19 +70,19 @@ updateTypeArray = function(activeType, state){
 		isFiltered = 'true';
 	}
 	updateSessionVariable('types');
-	updateLinksFromTypes();
+	updateLinksFromFilters();	
 }
 
-updateLinksFromTypes = function(){
-	Session.set('links', Links.find({ type: { $in : currentTypes}}).fetch());
+updateLinksFromFilters = function(){
+	console.log(currentTags)
+	if(currentTags != null){
+		console.log('using tags');
+		Session.set('links', Links.find({ type: { $in : currentTypes}, tags: { $elemMatch : {title: currentTags}}}).fetch());
+	} else {
+		console.log('not using tags');
+		Session.set('links', Links.find({ type: { $in : currentTypes}}).fetch());
+	}
 	updateSessionVariable('links');
-}
-
-getCurrentTypeArray = function() {
-	currentTypes = [];
-	Session.get('types').forEach(function(type){
-		currentTypes.push(type.title);
-	});	
 }
 
 updateSessionVariable = function(sessionVar) {
