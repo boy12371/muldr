@@ -11,8 +11,4 @@ Template.filters.helpers({
   }
 });
 
-Template.filters.rendered = function () {
-  $(".chosen-select").chosen()
-};
-
 
