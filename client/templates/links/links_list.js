@@ -23,15 +23,15 @@ Template.filters.rendered = function () {
 };
 
 Template.linksList.events({
-	"click .dropdown-menu li a": function () {
+	"click .tags li a": function () {
 		// filterByTag(this);
 		getCurrentTag(this);
 	},
-	"click .link-content .label": function () {
+	"click .tag-badge": function () {
 		// filterByTag(this);
 		getCurrentTag(this);
 	},
-	"change .checkbox-inline": function (evt) {
+	"change .type-checkbox": function (evt) {
 		if ($(evt.target).is(':checked')) {
 			updateTypeArray(this, 'active');
 		} else {

@@ -1,19 +1,14 @@
 <template name="filters">
-<!-- Single button -->
-  <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-      Tags <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
+  <ul class="tags" role="menu">
     <li><a href="#">All</a></li>
     {{#each tags}}
       <li><a href="#">{{title}}</a></li>
-     {{/each}}
-    </ul>
-  </div>
+    {{/each}}
+  </ul>
   {{#each types}}
-  <label class="checkbox-inline">
-    <input class="type-checkbox" type="checkbox" id="inlineCheckbox1" checked="{{isChecked}}" value="{{title}}"> {{title}}
-  </label>
+    <label>
+      <input class="type-checkbox" type="checkbox" checked="{{isChecked}}" value="{{title}}">
+        {{title}}
+      </label>
   {{/each}}
 </template>

@@ -1,19 +1,25 @@
 <template name="header">
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-		<a class="navbar-brand" href="{{pathFor 'linksList'}}">MULDR: Museum and Library Digital Resources</a>
-      </div>
-      <div class="collapse navbar-collapse" id="navigation">
-		<ul class="nav navbar-nav">
-          {{#if currentUser}}<li><a href="{{pathFor 'linkSubmit'}}">Submit Link</a></li>{{/if}}
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          login buttons: {{> loginButtons}} 
-        </ul>
-      </div>
-    </div>
-  </nav>
+<nav class="top-bar" data-topbar role="navigation">
+
+
+  <section class="top-bar-section">
+  <ul class="title-area">
+    <li class="name">
+      <a href="{{pathFor 'linksList'}}">MULDR</a>
+    </li>
+  </ul>  
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li>
+      	{{#if currentUser}}
+			<a href="{{pathFor 'linkSubmit'}}">Submit Link</a>
+		{{/if}}
+      </li>
+      <li>{{> loginButtons}} </li>
+    </ul>
+  </section>
+</nav>
+
 </template>
 
 

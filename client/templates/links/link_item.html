@@ -1,11 +1,13 @@
 <template name="linkItem">
-  <div class="link">
-    <div class="link-content">
-      <h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
-      {{#each tags}}
-      	<span class="label label-primary">{{title}}</span>
-      {{/each}} <br />
-	  type: {{type}}
-    </div>
-  </div>
+	<hr />
+	<div class="link">
+		<div class="link-content">
+			<h3><a href="{{url}}">{{title}}</a></h3>
+			URL: {{domain}}<br />
+			Tags: {{#each tags}}
+				<a class="tag-badge" href="#">{{title}}</a>
+			{{/each}} <br />
+			Type: {{type}}
+		</div>
+	</div>
 </template>

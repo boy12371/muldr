@@ -1,8 +1,7 @@
 <template name="layout">
-  <div class="container">
+{{initFoundation}}
     {{> header}}
-    <div id="main" class="row-fluid">
+    <div class="main">
       {{> yield}}
     </div>
-  </div>
 </template>
