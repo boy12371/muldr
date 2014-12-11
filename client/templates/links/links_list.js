@@ -18,13 +18,14 @@ Template.linksList.helpers({
   }
 });
 
-Template.filters.rendered = function () {
+Template.linksList.rendered = function () {
 	Session.set('types', Types.find().fetch()); 
 };
 
 Template.linksList.events({
-	"click .tags li a": function () {
+	"click .tag-filter a": function () {
 		// filterByTag(this);
+		console.log('hello');
 		getCurrentTag(this);
 	},
 	"click .tag-badge": function () {

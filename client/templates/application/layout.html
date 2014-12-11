@@ -1,7 +1,8 @@
 <template name="layout">
-{{initFoundation}}
-    {{> header}}
-    <div class="main">
-      {{> yield}}
-    </div>
+	{{> header}}
+	<div class="ui page grid">
+			<div class="sixteen wide column">
+		{{> yield}}
+			</div>
+	</div>
 </template>

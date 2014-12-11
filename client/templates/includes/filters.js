@@ -11,4 +11,10 @@ Template.filters.helpers({
   }
 });
 
+Template.filters.rendered = function () {
+  $('.ui.dropdown').dropdown();
+};
+
+
+
 

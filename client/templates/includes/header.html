@@ -1,25 +1,20 @@
 <template name="header">
-<nav class="top-bar" data-topbar role="navigation">
 
-
-  <section class="top-bar-section">
-  <ul class="title-area">
-    <li class="name">
-      <a href="{{pathFor 'linksList'}}">MULDR</a>
-    </li>
-  </ul>  
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li>
-      	{{#if currentUser}}
-			<a href="{{pathFor 'linkSubmit'}}">Submit Link</a>
-		{{/if}}
-      </li>
-      <li>{{> loginButtons}} </li>
-    </ul>
-  </section>
-</nav>
-
+<div class="ui menu">
+  <a class="item"><a href="{{pathFor 'linksList'}}">MULDR</a>
+  </a>
+  <div class="right menu">
+    <a class="item">
+        {{#if currentUser}}
+          <a href="{{pathFor 'linkSubmit'}}">Submit Link</a>
+        {{/if}}
+    </a>  
+    <a class="item">
+      <i class="user icon"></i>
+      {{> loginButtons}}
+    </a>  
+  </div>
+</div>
 </template>
 
 
