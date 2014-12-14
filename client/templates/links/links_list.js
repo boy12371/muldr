@@ -23,13 +23,10 @@ Template.linksList.rendered = function () {
 };
 
 Template.linksList.events({
-	"click .tag-filter a": function () {
-		// filterByTag(this);
-		console.log('hello');
+	"click .tag-filter .item": function () {
 		getCurrentTag(this);
 	},
 	"click .tag-badge": function () {
-		// filterByTag(this);
 		getCurrentTag(this);
 	},
 	"change .type-checkbox": function (evt) {
@@ -75,11 +72,8 @@ updateTypeArray = function(activeType, state){
 updateLinksFromFilters = function(){
 	getCurrentTypeArray();
 	if(currentTags != null){
-		console.log('using tags');
-		console.log(currentTags + ' + ' + currentTypes );
 		Session.set('links', Links.find({ type: { $in : currentTypes}, tags: { $elemMatch : {title: currentTags}}}).fetch());
 	} else {
-		console.log('not using tags');
 		Session.set('links', Links.find({ type: { $in : currentTypes}}).fetch());
 	}
 	isFiltered = 'true';
