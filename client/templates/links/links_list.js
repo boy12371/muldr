@@ -72,7 +72,7 @@ updateTypeArray = function(activeType, state){
 updateLinksFromFilters = function(){
 	getCurrentTypeArray();
 	if(currentTags != null){
-		Session.set('links', Links.find({ type: { $in : currentTypes}, tags: { $elemMatch : {title: currentTags}}}).fetch());
+		Session.set('links', Links.find({ type: { $in : currentTypes}, tags : currentTags}).fetch());
 	} else {
 		Session.set('links', Links.find({ type: { $in : currentTypes}}).fetch());
 	}

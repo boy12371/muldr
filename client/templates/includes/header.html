@@ -1,20 +1,16 @@
 <template name="header">
-
-<div class="ui menu">
-  <a class="item"><a href="{{pathFor 'linksList'}}">MULDR</a>
-  </a>
-  <div class="right menu">
-    <a class="item">
-        {{#if currentUser}}
-          <a href="{{pathFor 'linkSubmit'}}">Submit Link</a>
-        {{/if}}
-    </a>  
-    <a class="item">
-      <i class="user icon"></i>
-      {{> loginButtons}}
-    </a>  
+  <div class="ui menu main-nav">
+    <a class="item" href="{{pathFor 'linksList'}}">MULDR
+    </a>
+    <div class="right menu">    
+          {{#if currentUser}}
+          <a class="item" href="{{pathFor 'linkSubmit'}}">Submit Link</a>
+          {{/if}}
+      <a class="item" href="{{pathFor 'loginForm'}}">
+       <i class="user icon"></i>{{currentUser.username}}
+      </a>  
+    </div>
   </div>
-</div>
 </template>
 
 
