@@ -3,12 +3,15 @@
     <a class="item" href="{{pathFor 'linksList'}}">MULDR
     </a>
     <div class="right menu">    
-          {{#if currentUser}}
-          <a class="item" href="{{pathFor 'linkSubmit'}}">Submit Link</a>
-          {{/if}}
+      {{#if currentUser}}
+        <a class="item" href="{{pathFor 'linkSubmit'}}">Submit Link</a>
+      {{/if}}
       <a class="item" href="{{pathFor 'loginForm'}}">
        <i class="user icon"></i>{{currentUser.username}}
-      </a>  
+      </a> 
+      <a class="item" href="/about">
+       <i class="help circle icon"></i>
+      </a>        
     </div>
   </div>
 </template>

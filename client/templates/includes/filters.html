@@ -1,35 +1,32 @@
 <template name="filters">
 
-<div class="ui secondary menu">
-  <div class="item">
-    <div class="ui searchable floating dropdown labeled icon button" tabindex="0">
+<div class="ui form">
+  <div class="field floating">
+    <div class="ui searchable dropdown labeled icon basic button" tabindex="0">
       <i class="tags icon"></i>
       <span class="text">Filter by tag</span>
-      <div class="menu tag-filter" tabindex="-1">        <div class="item">
-          <a href="#">All</a>
+      <div class="menu tag-filter" tabindex="-1">        
+        <div class="item">
+          All
         </div>    
         {{#each tags}}
           <div class="item">
-            <a href="#">{{title}}</a>
+            {{title}}
           </div>
         {{/each}}
       </div>
     </div>
   </div>
-  <div class="right menu">
-    <div class="ui item">
-      {{#each types}}
-        <label>
-          <input class="type-checkbox" type="checkbox" checked="{{isChecked}}" value="{{title}}">
-            {{title}}
-          </label>
-      {{/each}}
-    </div>
-  </div>
+  <div class="inline fields">   
+    <label>Filter By Type:</label>   
+    {{#each types}}
+      <div class="field">
+        <div class="ui checkbox">
+          <input type="checkbox" checked="{{isChecked}}" class="type-checkbox" value="{{title}}">
+          <label>{{title}}</label>
+        </div>
+      </div>
+    {{/each}}
+  </div> 
 </div>
-
-
-
-
-
 </template>

@@ -1,13 +1,18 @@
 <template name="linkItem">
-	<div class="ui top attached header grey">
-		<h3 class="ui header"><a href="{{url}}">{{title}}</a></h3>
+<div class="item">	
+	<div class="ui top attached segment">
+		<div class="ui button tiny basic right floated summary-toggle">
+			<i class="content icon"></i> Summary
+		</div>	
+		<a href="{{url}}" class="ui medium header blue">{{title}}</a>
+		<br />{{domain}}
+
 	</div>
-	<div class="ui attached segment">
-		<div class="content">	
-			<p>{{text}}</p>
-		</div>
+	<div class="ui attached segment link-summary">
+		<p class="hidden">{{text}}</p>
 	</div>
 	<div class="ui bottom attached segment">
+		{{submitted}} <br />
 		<div class="ui label">
 			<i class="file icon"></i> {{type}}
 		</div>						
@@ -15,4 +20,5 @@
 			<a class="tag-badge ui tag label" href="#">{{this}}</a>
 		{{/each}} 		
 	</div>
+</div>
 </template>
