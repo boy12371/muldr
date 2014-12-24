@@ -10,7 +10,7 @@ Template.loginForm.events({
         Session.set("formErrors", err.reason);
       }
       else {
-        console.log('successfully logged in');
+        //succesfully logged in
       }
     });      
     return false; 

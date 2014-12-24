@@ -1,6 +1,36 @@
 <template name="filters">
-
-<div class="ui form">
+<div class="ui secondary tiered menu">
+  <div class="menu">  
+   <div class="ui dropdown item">
+      <i class="tags icon"></i>
+      Filter by tag
+      <div class="menu tag-filter" tabindex="-1">        
+        <div class="item">
+          All
+        </div>    
+        {{#each tags}}
+          <div class="item">
+            {{title}}
+          </div>
+        {{/each}}
+      </div>
+    </div>    
+    <div class="ui item" id="types-menu-item">
+      Type
+    </div>
+  </div>
+  <div class="ui sub menu" id="types-sub-menu">
+      {{#each types}}
+        <div class="item">
+          <div class="ui checkbox">
+            <input type="checkbox" checked="{{isChecked}}" class="type-checkbox" value="{{title}}">
+            <label>{{title}}</label>
+          </div>
+        </div>
+      {{/each}}
+  </div>
+</div>
+<!-- <div class="ui form">
   <div class="field floating">
     <div class="ui searchable dropdown labeled icon basic button" tabindex="0">
       <i class="tags icon"></i>
@@ -28,5 +58,5 @@
       </div>
     {{/each}}
   </div> 
-</div>
+</div> -->
 </template>

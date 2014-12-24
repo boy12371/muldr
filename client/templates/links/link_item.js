@@ -5,9 +5,9 @@ Template.linkItem.helpers({
     a.href = this.url;
     return a.hostname;
   },
-  submitted: function() {
-  	return this.submitted;
-  }
+  prettifyDate: function() {
+  	return this.submitted.toLocaleDateString();
+  },
 });
 
 Template.linkItem.rendered = function () {

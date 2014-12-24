@@ -1,8 +1,17 @@
 <template name="layout">
 	{{> header}}
-	<div class="ui page grid">
-			<div class="sixteen wide column">
-		{{> yield}}
+	<div class="ui page grid" id="main-content">
+		<div class="sixteen wide column">
+			<div class="ui yellow message">
+				<i class="close icon"></i>		
+				<div class="content">			
+					<h3 class="ui header">Welcome to MULDR</h3>
+					<p>A list of Museum and Library Digital Resources.</p>
+					<p>This site is currently very under construction. Please read the <a href="{{pathFor 'about'}}">about page</a>, the <a href="http://muldr.alexharr.is">development blog</a>, check the <a href="http://github.com/alexharris/muldr">Github repo</a>, or tweet me with questions <a href="http://www.twitter.com/alexharris6">@alexharris6</a>.</p>
+				</div>
 			</div>
+			{{> yield}}
+		</div>
 	</div>
+	{{> footer}}
 </template>

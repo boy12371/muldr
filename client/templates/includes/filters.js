@@ -11,10 +11,20 @@ Template.filters.helpers({
   }
 });
 
+Template.filters.events({
+  "click #types-menu-item": function () {
+    $('#types-menu-item').addClass('active');
+    $('#types-sub-menu').toggle();
+  },
+});
+
 Template.filters.rendered = function () {
   $('.ui.dropdown').dropdown();
   $('.ui .checkbox').checkbox();
+
+  $('#types-sub-menu').hide();
 };
+
 
 
 
