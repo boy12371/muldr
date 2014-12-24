@@ -5,14 +5,6 @@ Museum and Libary Digital Resources (MULDR) is a running list of links to resour
 
 ##Feature Roadmap
 
-- Users can submit links containing:
-	- ~~Title~~
-	- ~~URL~~
-	- ~~Tags~~
-	- ~~Date Submitted (auto)~~
-	- ~~ID (auto)~~
-	- ~~Author (auto)~~
-	- Need to add form validation
 - Ability to edit existing links
 	- Add tags
 	- edit summary
@@ -41,6 +33,14 @@ Museum and Libary Digital Resources (MULDR) is a running list of links to resour
 	- twitter, github
 	- link to blog, about page
 	- Internet Studio
+- ~~Users can submit links containing:~~
+	- ~~Title~~
+	- ~~URL~~
+	- ~~Tags~~
+	- ~~Date Submitted (auto)~~
+	- ~~ID (auto)~~
+	- ~~Author (auto)~~
+	- ~~Add form validation~~	
 
 ##Blog
 
