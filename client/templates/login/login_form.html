@@ -4,15 +4,7 @@
       <p>You are currently logged in as: {{currentUser.username}}</p>
       <input type="submit" id="logout-button" value="Log out" class="ui submit button" />
     {{else}}
-      <form id="login-form" class="ui form">        
-        {{#if formErrors}}
-          <div class="ui negative message">
-            <ul class="list">
-              <li>{{formErrors}}</li>
-            </ul>>
-          </div>
-        {{/if}}
-        <div class="ui error message"></div>
+      <form id="login-form" class="ui form">                
         <div class="two fields">
           <div class="required field">
             <label>Username</label>
@@ -29,6 +21,14 @@
             </div>
           </div>
         </div>
+        <div class="ui error message"></div>
+        {{#if formErrors}}
+          <div class="ui negative message">
+            <ul class="list">
+              <li>{{formErrors}}</li>
+            </ul>
+          </div>
+        {{/if}}        
         <input type="submit" id="login-button" value="Sign in" class="ui submit button" />
       </form>
     {{/if}}

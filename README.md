@@ -21,11 +21,12 @@ Museum and Libary Digital Resources (MULDR) is a running list of links to resour
 	- delete
 - Links can be sorted by:
 	- ~~Tags~~
-	- Type
+	- ~~Type~~
 	- Alpha (asc/dsc)
 	- Date submitted (asc/dsc)
 	- newest to oldest should be default
 	- improve cohesiveness of filter menu
+		- Use semantic UI "pop-up" for types?
 - Share options added to links
 - Users can flag broken links
 	- what happens when a link is flagged?

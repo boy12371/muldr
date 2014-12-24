@@ -34,7 +34,7 @@ Template.loginForm.rendered = function(){
       rules: [
         {
           type: 'empty',
-          prompt: 'Please enter your username'
+          prompt: 'Please enter your username.'
         }
       ]
     },
@@ -43,11 +43,11 @@ Template.loginForm.rendered = function(){
       rules: [
         {
           type: 'empty',
-          prompt: 'Please enter your password'
+          prompt: 'Please enter your password.'
         },
         {
           type   : 'length[6]',
-          prompt : 'Your password must be at least 6 characters'
+          prompt : 'Your password must be at least 6 characters.'
         }
       ]
     }

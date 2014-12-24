@@ -25,13 +25,6 @@ Template.linkSubmit.events({
   }
 });
 
-Template.linkSubmit.rendered = function () {
-	// $(".chosen-select").chosen({width: "100%"})
-
-  $('.ui.checkbox').checkbox();
-  $('.ui.dropdown').dropdown();
-};
-
 Template.linkSubmit.helpers({
   tags: function() {
   	return Tags.find();
@@ -40,3 +33,41 @@ Template.linkSubmit.helpers({
     return Types.find();
   }
 });
+
+Template.linkSubmit.rendered = function(){
+
+  // initialize some stuff
+  $('.ui.checkbox').checkbox();
+  $('.ui.dropdown').dropdown();
+
+  //form validation stuff
+  $('#link-submit-form').form({
+    title: {
+      identifier: 'link-title',
+      rules: [
+        {
+          type: 'empty',
+          prompt: 'Please provide a title.'
+        }
+      ]
+    },
+    url: {
+      identifier: 'url',
+      rules: [
+        {
+          type: 'url',
+          prompt: 'Please enter a valid URL, which must include the "http://" portion.'
+        }
+      ]
+    },  
+    type: {
+      identifier: 'link-type',
+      rules: [
+        {
+          type: 'empty',
+          prompt: 'Please select a type.'
+        }
+      ]
+    }        
+  });
+};

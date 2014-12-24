@@ -1,59 +1,57 @@
 <template name="linkSubmit">
-<form>
-  <h5 class="ui top attached header">
-    Basic Info
-  </h5>
-  <div class="ui form segment attached">
-    <div class="two fields">
-      <div class="field">
-        <label for="title-input">Title</label>
-        <input name="link-title" id="title-input" type="text" placeholder="Name of item" value="">
-      </div>
-      <div class="field">  
-        <label for="url-input">Link</label>
-        <div class="ui labeled input">
-          <a class="ui label">
-            http://
-          </a>
-          <input name="url" id="url-input" type="text" placeholder="URL of link"  value="">
+  <form class="ui form" id="link-submit-form">
+    <h5 class="ui top attached header">
+      Basic Info
+    </h5>
+    <div class="ui form segment attached">
+      <div class="two fields">
+        <div class="field required">
+          <label for="title-input">Title</label>
+          <input name="link-title" id="title-input" type="text" placeholder="The title of the link" value="">
+        </div>
+        <div class="field required">  
+          <label for="url-input">Link</label>
+          <input name="url" id="url-input" type="text" placeholder="http://www.whatever-it-is.com"  value="" >
         </div>
       </div>
     </div>
-  </div>
-  <h5 class="ui segment attached">
-    Classifications
-  </h5>    
-  <div class="ui form segment attached">
-    <div class="two fields">
-      <div class="field">
-        <div class="ui selection dropdown">
-          <input type="hidden" name="link-type">
-          <div class="default text">Pick a type</div>
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            {{#each types}}
-            <div class="item" data-value="{{title}}">{{title}}</div>
+    <h5 class="ui segment attached">
+      Classifications
+    </h5>    
+    <div class="ui form segment attached">
+      <div class="two fields">
+        <div class="field required">
+          <label></label>>Type</label>
+          <div class="ui selection dropdown">
+
+            <input type="hidden" name="link-type">
+            <div class="default text">Pick a type</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              {{#each types}}
+              <div class="item" data-value="{{title}}">{{title}}</div>
+              {{/each}}
+            </div>
+          </div>        
+        </div>
+        <div class="field">
+          <label>Select tags:</label>
+          <div class="inline fields">
+            {{#each tags}}
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" class="tag-checkbox" value="{{title}}" name="tag">
+                  <label>{{title}}</label>
+                </div>
+              </div>
             {{/each}}
           </div>
-        </div>        
-      </div>
-      <div class="field">
-        <label>Select tags:</label>
-        <div class="inline fields">
-          {{#each tags}}
-            <div class="field">
-              <div class="ui checkbox">
-                <input type="checkbox" class="tag-checkbox" value="{{title}}" name="tag">
-                <label>{{title}}</label>
-              </div>
-            </div>
-          {{/each}}
         </div>
       </div>
     </div>
-  </div>
-  <div class="ui bottom attached segment">
-    <input type="submit" value="Submit" class="ui submit button blue"/>
-  </div>
-</form>
+    <div class="ui bottom attached segment">
+      <div class="ui error message"></div>
+      <input type="submit" value="Submit" class="ui submit button blue"/>
+    </div>
+  </form>
 </template>
