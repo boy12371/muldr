@@ -1,17 +1,18 @@
 <template name="header">
-  <div class="ui inverted menu" id="main-nav">
-    <a class="item" href="{{pathFor 'linksList'}}">MULDR
-    </a>
-    <div class="right menu">    
-      {{#if currentUser}}
-        <a class="item" href="{{pathFor 'linkSubmit'}}">Submit Link</a>
-      {{/if}}
-      <a class="item" href="{{pathFor 'loginForm'}}">
-       <i class="user icon"></i>{{currentUser.username}}
-      </a> 
-      <a class="item" href="/about">
-       <i class="help circle icon"></i>
-      </a>        
+  <div class="ui inverted large menu" id="main-nav">
+    <div class="container">    
+      <a class="logo item" href="{{pathFor 'linksList'}}">MULDR</a>
+      <div class="right menu">    
+        {{#if currentUser}}
+          <a class="item" href="{{pathFor 'linkSubmit'}}">Submit Link</a>
+        {{/if}}
+        <a class="item" href="{{pathFor 'loginForm'}}">
+         <i class="user icon"></i>{{currentUser.username}}
+        </a> 
+        <a class="item" href="/about">
+         <i class="help circle icon"></i>
+        </a>        
+      </div>
     </div>
   </div>
 </template>

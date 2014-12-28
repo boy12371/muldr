@@ -5,8 +5,10 @@ Museum and Libary Digital Resources (MULDR) is a running list of links to resour
 
 ##Feature Roadmap
 
+- Add summary field to link submit form
 - Ability to edit existing links
-	- Add tags
+	- Add/remove tags
+	- change link
 	- edit summary
 	- modify type
 	- change title

@@ -11,7 +11,12 @@
 		<p class="hidden">{{text}}</p>
 	</div>
 	<div class="ui bottom attached segment">
-		<div class="ui right floated"><i class="calendar icon"></i>{{prettifyDate}}</div>
+		<div class="ui right floated">
+			<a href="{{pathFor 'linkEdit'}}"><i class="write icon"></i></a>
+			{{#if this.submitted}}
+				<i class="calendar icon"></i>{{prettifyDate}}
+			{{/if}}
+		</div>
 		<div class="ui label">
 			<i class="file icon"></i> {{type}}
 		</div>						

@@ -1,9 +1,8 @@
-//fun to someday combine formerrors here and on login into single method for form validation
-
-Template.linkSubmit.events({
+Template.linkEdit.events({
   'submit form': function(e) {
-
     e.preventDefault();
+
+    var currentLinkId = this._id;
 
     var tags = [];
     $('.checked input[name=tag]').each(function() {
@@ -17,25 +16,43 @@ Template.linkSubmit.events({
       tags: tags
     };
 
-    Meteor.call('linkInsert', link, function(error, result) {
-    	if (error) {
-        return alert(error.reason);
-      }
-    	if (result.linkExists) {  
+    existingUrl = checkSameUrl(link);
+
+    if(existingUrl) {
+      if(existingUrl._id === this._id){
+        //its all good just update the link
+      } else {
         Session.set('formError', 'That link has already been posted');
-        Session.set('existingLinkID', result._id);
+        Session.set('existingLinkID', existingUrl._id);
+        return;
+      }
+    }
+
+    Links.update(currentLinkId, {$set: link}, function(error) {
+      if (error) {
+        // display the error to the user
+        alert(error.reason);
       } else {
         Router.go('linksList');
       }
-
     });
-      
+  },
+
+  'click .delete': function(e) {
+    e.preventDefault();
+
+    if (confirm("Delete this link?")) {
+      var currentLinkId = this._id;
+      console.log(this._id);
+      Links.remove(currentLinkId);
+      Router.go('linksList');
+    }
   }
 });
 
-Template.linkSubmit.helpers({
+Template.linkEdit.helpers({
   tags: function() {
-  	return Tags.find();
+    return Tags.find();
   },
   types: function() {
     return Types.find();
@@ -43,10 +60,11 @@ Template.linkSubmit.helpers({
   formError: function() {
     var formError = Session.get('formError');
     return formError;
-  } 
+  }
 });
 
-Template.linkSubmit.rendered = function(){
+
+Template.linkEdit.rendered = function(){
   //clear form errors
   Session.set('formError', '');
 

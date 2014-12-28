@@ -1,4 +1,4 @@
-<template name="linkSubmit">
+<template name="linkEdit">
   <form class="ui form" id="link-submit-form">
     <h5 class="ui top attached header">
       Basic Info
@@ -7,11 +7,11 @@
       <div class="two fields">
         <div class="field required">
           <label for="title-input">Title</label>
-          <input name="link-title" id="title-input" type="text" placeholder="The title of the link" value="">
+          <input name="link-title" id="title-input" type="text" placeholder="The title of the link" value="{{title}}">
         </div>
         <div class="field required">  
           <label for="url-input">Link</label>
-          <input name="url" id="url-input" type="text" placeholder="http://www.whatever-it-is.com"  value="" >
+          <input name="url" id="url-input" type="text" placeholder="http://www.whatever-it-is.com"  value="{{url}}" >
         </div>
       </div>
     </div>
@@ -23,8 +23,8 @@
         <div class="field required">
           <label>Type</label>
           <div class="ui selection dropdown">
-            <input type="hidden" name="link-type">
-            <div class="default text">Pick a type</div>
+            <input type="hidden" name="link-type" value="{{type}}">
+            <div class="default text">{{type}}</div>
             <i class="dropdown icon"></i>
             <div class="menu">
               {{#each types}}
@@ -33,10 +33,12 @@
             </div>
           </div>        
         </div>
+        {{this.tags}}
         <div class="field">
           <label>Select tags:</label>
           <div class="inline fields">
             {{#each tags}}
+            {{checkedTags}}
               <div class="field">
                 <div class="ui checkbox">
                   <input type="checkbox" class="tag-checkbox" value="{{title}}" name="tag">
@@ -54,6 +56,7 @@
         <div class="ui negative message"><ul class="list"><li>{{formError}}: {{existingLink}}</li></ul></div>
       {{/if}}
       <input type="submit" value="Submit" class="ui submit button blue"/>
+      <a class="ui button red right floated delete" href="#">Delete post</a>
     </div>
   </form>
 </template>
