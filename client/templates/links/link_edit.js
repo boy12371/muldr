@@ -2,6 +2,8 @@ Template.linkEdit.events({
   'submit form': function(e) {
     e.preventDefault();
 
+    check(Meteor.userId(), String);
+
     var currentLinkId = this._id;
 
     var tags = [];
@@ -16,6 +18,15 @@ Template.linkEdit.events({
       summary: $(e.target).find('[name=link-summary]').val(),
       tags: tags
     };
+
+    check(link, {
+      title: String,
+      url: String,
+      type: String,
+      summary: String,
+      tags: Match.Optional([String])
+    });    
+
 
     existingUrl = checkSameUrl(link);
 
@@ -42,9 +53,10 @@ Template.linkEdit.events({
   'click .delete': function(e) {
     e.preventDefault();
 
+    check(Meteor.userId(), String);
+
     if (confirm("Delete this link?")) {
       var currentLinkId = this._id;
-      console.log(this._id);
       Links.remove(currentLinkId);
       Router.go('linksList');
     }
