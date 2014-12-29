@@ -13,6 +13,7 @@ Template.linkEdit.events({
       url: $(e.target).find('[name=url]').val(),
       title: $(e.target).find('[name=link-title]').val(),
       type: $(e.target).find('[name=link-type]').val(),
+      summary: $(e.target).find('[name=link-summary]').val(),
       tags: tags
     };
 

@@ -14,6 +14,7 @@ Template.linkSubmit.events({
       url: $(e.target).find('[name=url]').val(),
       title: $(e.target).find('[name=link-title]').val(),
       type: $(e.target).find('[name=link-type]').val(),
+      summary: $(e.target).find('[name=link-summary]').val(),
       tags: tags
     };
 
@@ -82,6 +83,15 @@ Template.linkSubmit.rendered = function(){
           prompt: 'Please select a type.'
         }
       ]
-    }        
+    },
+    summary: {
+      identifier: 'link-summary',
+      rules: [
+        {
+          type: 'empty',
+          prompt: 'Please provide a summary.'
+        }
+      ]
+    }             
   });
 };
