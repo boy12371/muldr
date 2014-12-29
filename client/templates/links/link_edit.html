@@ -33,15 +33,13 @@
             </div>
           </div>        
         </div>
-        {{this.tags}}
         <div class="field">
           <label>Select tags:</label>
           <div class="inline fields">
             {{#each tags}}
-            {{checkedTags}}
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" class="tag-checkbox" value="{{title}}" name="tag">
+                  <input type="checkbox" class="tag-checkbox" value="{{title}}" name="tag" {{isChecked}}>
                   <label>{{title}}</label>
                 </div>
               </div>

@@ -7,12 +7,13 @@ Museum and Libary Digital Resources (MULDR) is a running list of links to resour
 
 - Add summary field to link submit form
 - Ability to edit existing links
-	- Add/remove tags
-	- change link
+	- ~~Add/remove tags~~
+	- ~~change link~~
 	- edit summary
-	- modify type
-	- change title
-	- delete
+	- ~~modify type~~
+	- ~~change title~~
+	- ~~delete~~
+	- restrict delete/edit to a signed in user
 - Links can be sorted by:
 	- ~~Tags~~
 	- ~~Type~~

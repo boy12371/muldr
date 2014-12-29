@@ -60,11 +60,17 @@ Template.linkEdit.helpers({
   formError: function() {
     var formError = Session.get('formError');
     return formError;
+  },
+  isChecked: function() {
+    currentId = Session.get('currentId');
+    var currentLink = Links.findOne(Session.get('currentId'));
+    return _.contains(currentLink.tags, this.title) ? 'checked' : '';
   }
 });
 
 
 Template.linkEdit.rendered = function(){
+
   //clear form errors
   Session.set('formError', '');
 
