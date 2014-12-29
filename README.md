@@ -5,11 +5,11 @@ Museum and Libary Digital Resources (MULDR) is a running list of links to resour
 
 ##Feature Roadmap
 
-- Add summary field to link submit form
+
 - Ability to edit existing links
 	- ~~Add/remove tags~~
 	- ~~change link~~
-	- edit summary
+	- ~~edit summary~~
 	- ~~modify type~~
 	- ~~change title~~
 	- ~~delete~~
@@ -36,6 +36,7 @@ Museum and Libary Digital Resources (MULDR) is a running list of links to resour
 	- twitter, github
 	- link to blog, about page
 	- Internet Studio
+- ~~Add summary field to link submit form~~	
 - ~~Users can submit links containing:~~
 	- ~~Title~~
 	- ~~URL~~
