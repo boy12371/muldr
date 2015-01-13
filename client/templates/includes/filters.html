@@ -1,33 +1,50 @@
 <template name="filters">
-<div class="ui secondary tiered menu">
-  <div class="menu">  
-   <div class="ui dropdown item">
-      <i class="tags icon"></i>
-      Filter by tag
-      <div class="menu tag-filter" tabindex="-1">        
+<div class="ui segment red inverted">
+  <div class="ui secondary menu">
+    <div class="menu">  
+  <!--      <div class="ui dropdown item">
+          <i class="tags icon"></i>
+          Filter by tag
+          <div class="menu tag-filter">        
+            <div class="item">
+              All
+            </div>    
+            {{#each tags}}
+              <div class="item">
+                {{title}}
+              </div>
+            {{/each}}
+          </div>
+        </div>  -->   
+      <div class="browse item">
+        <i class="dropdown icon"></i>
+        Tags
+      </div> 
+      <div class="ui popup tag-filter">
         <div class="item">
           All
-        </div>    
+        </div> 
         {{#each tags}}
           <div class="item">
             {{title}}
           </div>
         {{/each}}
-      </div>
-    </div>    
-    <div class="ui item" id="types-menu-item">
-      Type
-    </div>
-  </div>
-  <div class="ui sub menu" id="types-sub-menu">
-      {{#each types}}
-        <div class="item">
-          <div class="ui checkbox">
-            <input type="checkbox" checked="{{isChecked}}" class="type-checkbox" value="{{title}}">
-            <label>{{title}}</label>
+      </div>       
+      <div class="browse item">
+        <i class="dropdown icon"></i>
+        Type
+      </div> 
+      <div class="ui popup">
+        {{#each types}}
+          <div class="item">
+            <div class="ui checkbox">
+              <input type="checkbox" class="type-checkbox" value="{{title}}">
+              <label>{{title}}</label>
+            </div>
           </div>
-        </div>
-      {{/each}}
+        {{/each}}
+      </div>   
+    </div>
   </div>
 </div>
 <!-- <div class="ui form">

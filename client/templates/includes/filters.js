@@ -22,7 +22,17 @@ Template.filters.rendered = function () {
   $('.ui.dropdown').dropdown();
   $('.ui .checkbox').checkbox();
 
-  $('#types-sub-menu').hide();
+$('.browse')
+  .popup({
+    inline   : true,
+    hoverable: true,
+    position : 'bottom left',
+    delay: {
+      show: 300,
+      hide: 800
+    }
+  })
+;  
 };
 
 

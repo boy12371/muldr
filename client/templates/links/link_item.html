@@ -1,24 +1,23 @@
 <template name="linkItem">
 <div class="item">	
 	<div class="ui top attached segment">
-		<div class="ui button tiny basic right floated summary-toggle">
-			<i class="content icon"></i> Summary
+		<div class="ui button tiny blue inverted right floated summary-toggle">
+			<i class="content icon"></i> ABOUT
 		</div>	
-		<a href="{{url}}" class="ui medium header blue">{{title}}</a>
-		<br />{{domain}}
+		<a href="{{url}}" class="ui medium header red">{{title}}</a>
 	</div>
 	<div class="ui attached segment link-summary">
 		<p class="hidden">{{summary}}</p>
 	</div>
-	<div class="ui bottom attached segment">
+	<div class="ui bottom attached segment item-details">
 		<div class="ui right floated">
-			{{#if currentUser}}
-				<a href="{{pathFor 'linkEdit'}}"><i class="write icon"></i></a>
-			{{/if}}
+			<i class="world icon"></i>{{domain}}
 			{{#if this.submitted}}
-				<i class="calendar icon"></i>{{prettifyDate}}
+				&nbsp;<i class="calendar icon"></i>{{prettifyDate}} 
 			{{/if}}
-
+			{{#if currentUser}}
+				&nbsp;<a href="{{pathFor 'linkEdit'}}"><i class="write icon"></i>Edit</a>
+			{{/if}}			
 		</div>
 		<div class="ui label">
 			<i class="file icon"></i> {{type}}
