@@ -24,12 +24,13 @@ Template.filters.rendered = function () {
 
 $('.browse')
   .popup({
-    inline   : true,
+    inline: true,
+    on: 'click',
     hoverable: true,
     position : 'bottom left',
     delay: {
-      show: 300,
-      hide: 800
+      show: 150,
+      hide: 500
     }
   })
 ;  

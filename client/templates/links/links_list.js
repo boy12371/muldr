@@ -47,21 +47,13 @@ getCurrentTag = function(selectedTag){
 	updateLinksFromFilters();	
 }
 
-getCurrentTypeArray = function() {
-	currentTypes = [];
-	Session.get('types').forEach(function(type){
-		currentTypes.push(type.title);
-	});	
-}
 
 updateTypeArray = function(activeType, state){
 	if(state === 'inactive') {
-		getCurrentTypeArray();
 		i = currentTypes.indexOf(activeType.title);
 		currentTypes.splice(i,1);	
 		Session.set('types', Types.find({ title: { $in : currentTypes}}).fetch());
 	} else {
-		getCurrentTypeArray();
 		currentTypes.push(activeType.title);
 		Session.set('types', Types.find({ title: { $in : currentTypes}}).fetch());
 	}
@@ -70,9 +62,11 @@ updateTypeArray = function(activeType, state){
 }
 
 updateLinksFromFilters = function(){
-	getCurrentTypeArray();
+	console.log(currentTypes);
 	if(currentTags != null){
 		Session.set('links', Links.find({ type: { $in : currentTypes}, tags : currentTags}).fetch());
+	} else if (currentTypes.length < 1){
+		Session.set('links', Links.find().fetch());
 	} else {
 		Session.set('links', Links.find({ type: { $in : currentTypes}}).fetch());
 	}
