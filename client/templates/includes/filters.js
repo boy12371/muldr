@@ -32,8 +32,13 @@ $('.browse')
       show: 150,
       hide: 500
     }
-  })
-;  
+  });
+
+  $('.ui.sticky')
+    .sticky({
+      context: '#footer',
+      offset: 60
+    });  
 };
 
 

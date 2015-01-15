@@ -15,6 +15,15 @@ Template.linksList.helpers({
   },
   tags: function() {
     return Tags.find();
+  },
+  currentFilters: function() {
+  	allTypes = Types.find().fetch();
+  	currentFilterTypes = Session.get('types');
+  	if (currentFilterTypes.length === allTypes.length || currentFilterTypes == '') {
+  		return _.extend({currentFilters:[{title: 'all'}]},this);
+  	} else {
+  		return _.extend({currentFilters:currentFilterTypes},this);
+  	}
   }
 });
 
@@ -62,11 +71,16 @@ updateTypeArray = function(activeType, state){
 }
 
 updateLinksFromFilters = function(){
-	console.log(currentTypes);
-	if(currentTags != null){
-		Session.set('links', Links.find({ type: { $in : currentTypes}, tags : currentTags}).fetch());
-	} else if (currentTypes.length < 1){
+	// Tags, No Type
+	if (currentTags != null && currentTypes.length < 1){
+		Session.set('links', Links.find({tags: currentTags}).fetch());
+	// Tags and Type
+	} else if (currentTags != null && currentTypes.length > 0) {
+		Session.set('links', Links.find({ type: { $in : currentTypes}, tags : currentTags}).fetch());		
+	// No Tags, No Type
+	} else if (currentTypes.length < 1 && currentTags == null){
 		Session.set('links', Links.find().fetch());
+	// Type, No Tag	
 	} else {
 		Session.set('links', Links.find({ type: { $in : currentTypes}}).fetch());
 	}

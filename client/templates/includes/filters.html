@@ -1,21 +1,9 @@
 <template name="filters">
-<div class="ui segment red">
+<div class="ui attached segment red">
   <div class="ui secondary menu">
-    <div class="menu">  
-  <!--      <div class="ui dropdown item">
-          <i class="tags icon"></i>
-          Filter by tag
-          <div class="menu tag-filter">        
-            <div class="item">
-              All
-            </div>    
-            {{#each tags}}
-              <div class="item">
-                {{title}}
-              </div>
-            {{/each}}
-          </div>
-        </div>  -->   
+      <div class="item">
+        <strong>Filter:</strong>
+      </div>     
       <div class="browse item">
         <i class="dropdown icon"></i>
         Tags
@@ -45,35 +33,10 @@
         {{/each}}
       </div>   
     </div>
-  </div>
 </div>
-<!-- <div class="ui form">
-  <div class="field floating">
-    <div class="ui searchable dropdown labeled icon basic button" tabindex="0">
-      <i class="tags icon"></i>
-      <span class="text">Filter by tag</span>
-      <div class="menu tag-filter" tabindex="-1">        
-        <div class="item">
-          All
-        </div>    
-        {{#each tags}}
-          <div class="item">
-            {{title}}
-          </div>
-        {{/each}}
-      </div>
-    </div>
-  </div>
-  <div class="inline fields">   
-    <label>Filter By Type:</label>   
-    {{#each types}}
-      <div class="field">
-        <div class="ui checkbox">
-          <input type="checkbox" checked="{{isChecked}}" class="type-checkbox" value="{{title}}">
-          <label>{{title}}</label>
-        </div>
-      </div>
-    {{/each}}
-  </div> 
-</div> -->
+<div class="ui attached segment">
+  You are viewing the following types: {{#each currentFilters}}
+    <div class="ui label tiny">{{this.title}} </div>
+  {{/each}}, that have been tagged as 
+</div>
 </template>
