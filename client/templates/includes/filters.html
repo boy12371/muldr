@@ -35,8 +35,11 @@
     </div>
 </div>
 <div class="ui attached segment">
-  You are viewing the following types: {{#each currentFilters}}
-    <div class="ui label tiny">{{this.title}} </div>
-  {{/each}}, that have been tagged as 
+<strong>Tags:</strong> {{#each currentTags}}
+ {{title}}
+{{/each}} <br />
+<strong>Types:</strong> {{#each currentTypes}}
+  {{title}}
+{{/each}}
 </div>
 </template>

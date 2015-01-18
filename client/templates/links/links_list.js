@@ -20,15 +20,6 @@ Template.linksList.helpers({
   		Session.set('links', Links.find().fetch()); 		
   	}
   	return Session.get('links');
-  },
-  currentTypes: function() {
-  	allTypes = Types.find().fetch();
-  	currentFilterTypes = Session.get('types');
-  	if (currentFilterTypes.length === allTypes.length || currentFilterTypes == '') {
-  		return _.extend({currentFilters:[{title: 'all'}]},this);
-  	} else {
-  		return _.extend({currentFilters:currentFilterTypes},this);
-  	}
   }
 });
 

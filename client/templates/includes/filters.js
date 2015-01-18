@@ -5,17 +5,12 @@ Template.filters.helpers({
   types: function() {
     return Types.find();
   },
-  isChecked: function(){
-  	var checked = true;
-  	return checked;
-  }
-});
-
-Template.filters.events({
-  "click #types-menu-item": function () {
-    $('#types-menu-item').addClass('active');
-    $('#types-sub-menu').toggle();
+  currentTags: function() {
+    return Session.get('tags');
   },
+  currentTypes: function() {
+    return Session.get('types');
+  }
 });
 
 Template.filters.rendered = function () {
