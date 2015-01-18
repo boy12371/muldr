@@ -8,13 +8,13 @@
         <i class="dropdown icon"></i>
         Tags
       </div> 
-      <div class="ui popup tag-filter">
-        <div class="item">
-          All
-        </div> 
+      <div class="ui popup">
         {{#each tags}}
           <div class="item">
-            {{title}}
+            <div class="ui checkbox">
+              <input type="checkbox" class="tag-checkbox" value="{{title}}">
+              <label>{{title}}</label>
+            </div>
           </div>
         {{/each}}
       </div>       

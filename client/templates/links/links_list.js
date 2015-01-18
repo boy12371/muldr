@@ -2,7 +2,7 @@
 
 var isFiltered;
 var currentTypes = [];
-var currentTags = null;
+var currentTags = [];
 
 Template.linksList.helpers({
   links: function() {
@@ -14,9 +14,14 @@ Template.linksList.helpers({
   	return Session.get('links');
   },
   tags: function() {
-    return Tags.find();
+  	// check to see if filter is being set by click event
+  	if (isFiltered != 'true') {
+  		// initial load of all of the links
+  		Session.set('links', Links.find().fetch()); 		
+  	}
+  	return Session.get('links');
   },
-  currentFilters: function() {
+  currentTypes: function() {
   	allTypes = Types.find().fetch();
   	currentFilterTypes = Session.get('types');
   	if (currentFilterTypes.length === allTypes.length || currentFilterTypes == '') {
@@ -29,14 +34,16 @@ Template.linksList.helpers({
 
 Template.linksList.rendered = function () {
 	Session.set('types', Types.find().fetch()); 
+	Session.set('tags', Tags.find().fetch()); 
 };
 
 Template.linksList.events({
-	"click .tag-filter .item": function () {
-		getCurrentTag(this);
-	},
-	"click .tag-badge": function () {
-		getCurrentTag(this);
+	"change .tag-checkbox": function (evt) {
+		if ($(evt.target).is(':checked')) {
+			updateTagArray(this, 'active');
+		} else {
+			updateTagArray(this, 'inactive');
+		}
 	},
 	"change .type-checkbox": function (evt) {
 		if ($(evt.target).is(':checked')) {
@@ -46,15 +53,6 @@ Template.linksList.events({
 		}
 	}
 });
-
-getCurrentTag = function(selectedTag){
-	if(typeof selectedTag.title === 'string'){
-		currentTags = selectedTag.title;
-	} else {
-		currentTags = null;
-	}
-	updateLinksFromFilters();	
-}
 
 
 updateTypeArray = function(activeType, state){
@@ -70,19 +68,32 @@ updateTypeArray = function(activeType, state){
 	updateLinksFromFilters();	
 }
 
-updateLinksFromFilters = function(){
-	// Tags, No Type
-	if (currentTags != null && currentTypes.length < 1){
-		Session.set('links', Links.find({tags: currentTags}).fetch());
-	// Tags and Type
-	} else if (currentTags != null && currentTypes.length > 0) {
-		Session.set('links', Links.find({ type: { $in : currentTypes}, tags : currentTags}).fetch());		
-	// No Tags, No Type
-	} else if (currentTypes.length < 1 && currentTags == null){
-		Session.set('links', Links.find().fetch());
-	// Type, No Tag	
+updateTagArray = function(activeTag, state){
+	if(state === 'inactive') {
+		i = currentTags.indexOf(activeTag.title);
+		currentTags.splice(i,1);	
+		Session.set('tags', Tags.find({ title: { $in : currentTags}}).fetch());
 	} else {
-		Session.set('links', Links.find({ type: { $in : currentTypes}}).fetch());
+		currentTags.push(activeTag.title);
+		Session.set('tags', Tags.find({ title: { $in : currentTags}}).fetch());
+	}
+	updateSessionVariable('tags');
+	updateLinksFromFilters();	
+}
+
+updateLinksFromFilters = function(){
+	// No Tags, No Type
+	if (currentTags.length < 1 && currentTypes.length < 1){
+		Session.set('links', Links.find().fetch());
+	// Tags and Type
+	} else if (currentTags.length > 0 && currentTypes.length > 0) {
+		Session.set('links', Links.find({ type: { $in : currentTypes}, tags : { $in : currentTags}}).fetch());		
+	// Tags, No Type
+	} else if (currentTags.length > 0 && currentTypes.length < 1){
+		Session.set('links', Links.find({ tags : { $in : currentTags}}).fetch());	
+	// Type, No Tag	s
+	} else {
+		Session.set('links', Links.find({ type : { $in : currentTypes}}).fetch());	
 	}
 	isFiltered = 'true';
 	updateSessionVariable('links');
